@@ -35,10 +35,10 @@ const populateWeatherList = function(data) {
     weatherInfo.removeChild(weatherInfo.firstChild);
   }
     const town = createTown(data);
-    // const description = createDescription(data);
+    const description = createDescription(data);
     const temp = createTemp(data);
     const wind = createWind(data);
-    const elements = appendElements(weatherInfo, town, temp, wind);
+    const elements = appendElements(weatherInfo, town, description, temp, wind);
 }
 
 const createTown = function(data) {
@@ -47,12 +47,11 @@ const createTown = function(data) {
   return town;
 }
 
-// const createDescription = function(data) {
-//   for(var description in data.weather);
-//   const description = document.createElement('li');
-//   description.innerText = 'Current Condition: ' + description;
-//   return description;
-// }
+const createDescription = function(data) {
+  const description = document.createElement('li');
+  description.innerText = 'Current Condition: ' + data.weather[0].description;
+  return description;
+}
 
 const createTemp = function(data) {
   const temp = document.createElement('li');
@@ -66,9 +65,9 @@ const createWind = function(data) {
   return wind;
 }
 
-const appendElements = function(weatherInfo, town, temp, wind) {
+const appendElements = function(weatherInfo, town, description, temp, wind) {
   weatherInfo.appendChild(town);
-  // weatherInfo.appendChild(description);
+  weatherInfo.appendChild(description);
   weatherInfo.appendChild(temp);
   weatherInfo.appendChild(wind);
 
