@@ -2,15 +2,20 @@
 <html>
 <head>
   <title>Weather</title>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
   <script src='index.js'></script>
+  <script src="columnChart.js"></script>
 </head>
 <body>
   <h1>Weather Data</h1>
   <p>
-    Town/City: <input id ="town" value="Inverurie"></input></p>
+    Town/City: <input id ="town" value=""></input></p>
     <br/>
-    <button id="select">select</button>
+    <button id="select">Select</button>
+    <br/>
+    <button id="select-forecast">Forecast</button>
   </P>
   <ul id="weather-data"></ul>
+  <div id="column-chart"></div>
 </body>
 </html>
